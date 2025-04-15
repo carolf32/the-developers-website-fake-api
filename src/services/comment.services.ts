@@ -15,7 +15,13 @@ export class CommentServices {
         devId: Number(devId),
       },
       include: {
-        user: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
       },
     });
     return data;

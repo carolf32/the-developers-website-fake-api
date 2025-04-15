@@ -21,7 +21,7 @@ commentRouter.get(
   async (req, res) => await commentController.getCommentByDev(req, res)
 );
 commentRouter.delete(
-  "/comments/:commentId",
+  "/devs/:devId/comments/:commentId",
   ValidateToken.execute,
   IsUserIdValid.execute,
   IsCommentIdValid.execute,
