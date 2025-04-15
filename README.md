@@ -203,10 +203,7 @@ There's no response body.
 		"user": {
 			"id": 6,
 			"name": "New name",
-			"email": "johndoe@mail.com",
-			"password": "senha123",
-			"createdAt": "2025-04-15T13:09:46.957Z",
-			"updatedAt": "2025-04-15T13:51:27.485Z"
+			"email": "johndoe@mail.com"
 		}
 	}
 ]
