@@ -58,19 +58,22 @@ Each comment contains:
 	"createdAt": "2025-04-15T13:09:46.957Z"
 }
 ```
-#### Possible error (STATUS CODE 500)
+#### Possible error (STATUS CODE 403)
 ```
-ZodError: [
-  {
-    "code": "invalid_type",
-    "expected": "string",
-    "received": "number",
-    "path": [
-      "name"
-    ],
-    "message": "Expected string, received number"
-  }
-]
+{
+	"issues": [
+		{
+			"code": "invalid_type",
+			"expected": "string",
+			"received": "number",
+			"path": [
+				"name"
+			],
+			"message": "Expected string, received number"
+		}
+	],
+	"name": "ZodError"
+}
 ```
 #### Possible error (STATUS CODE 404)
 ```
