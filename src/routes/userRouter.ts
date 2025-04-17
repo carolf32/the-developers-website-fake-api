@@ -15,7 +15,7 @@ userRouter.get("/:id", ValidateToken.execute, (req, res) =>
   userController.getUser(req, res)
 );
 
-userRouter.get("/", ValidateToken.execute, (req, res) =>
+userRouter.get("", ValidateToken.execute, (req, res) =>
   userController.getAllUsers(req, res)
 );
 
