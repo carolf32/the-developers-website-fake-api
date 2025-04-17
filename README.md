@@ -27,6 +27,8 @@ Each comment contains:
 # Routes - Users
 |type|address|description|
 |-|-|-|
+|GET|/api/users/:id|get user|
+|GET|/api/users|get all users|
 |POST|/api/users/register|signup route|
 |POST|/api/users/login|login route|
 |DELETE|/api/users/:id|delete user route|
@@ -40,6 +42,35 @@ Each comment contains:
 |DELETE|/api/devs/:devId/comments/:commentId|delete comment route|
 
 # Requests and responses
+
+### GET/api/users/:id 
+#### Response template (STATUS CODE 200)
+```
+{
+	"id": 6,
+	"name": "John Doe",
+	"email": "johndoe@mail.com",
+	"createdAt": "2025-04-15T13:09:46.957Z"
+}
+```
+#### Possible error (STATUS CODE 404)
+```
+{
+	"message": "User not found"
+}
+```
+### GET/api/users 
+#### Response template (STATUS CODE 200)
+```
+[
+	{
+		"id": 6,
+		"name": "John Doe",
+		"email": "johndoe@mail.com",
+		"createdAt": "2025-04-15T13:09:46.957Z"
+	}
+]
+```
 ### POST/api/users/register
 #### Request template
 ```
