@@ -12,12 +12,12 @@ container.registerSingleton("CommentServices", CommentServices);
 const commentController = container.resolve(CommentController);
 
 commentRouter.post(
-  "/comments",
+  "/devs/:devId/comments",
   ValidateToken.execute,
   async (req, res) => await commentController.createComment(req, res)
 );
 commentRouter.get(
-  "/comments",
+  "/devs/:devId/comments",
   async (req, res) => await commentController.getCommentByDev(req, res)
 );
 commentRouter.delete(
