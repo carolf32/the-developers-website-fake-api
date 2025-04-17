@@ -1,4 +1,3 @@
-import { inject } from "tsyringe";
 import { prisma } from "../database/prisma";
 import { appError } from "../errors/appError";
 import {
@@ -12,6 +11,26 @@ import { injectable } from "tsyringe";
 
 @injectable()
 export class UserService {
+  async getUser(id: string) {
+    const userId = Number(id);
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!user) {
+      throw new appError(404, "User not found");
+    }
+
+    return userReturnSchema.parse(user);
+  }
+
+  async getAllUsers() {
+    const users = await prisma.user.findMany();
+    return users.map((user) => userReturnSchema.parse(user));
+  }
+
   async createUser(body: TUserCreate) {
     const userExists = await prisma.user.findUnique({
       where: {

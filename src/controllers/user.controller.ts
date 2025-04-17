@@ -6,6 +6,16 @@ import { UserService } from "../services/user.services";
 export class UserController {
   constructor(@inject("UserService") private userService: UserService) {}
 
+  async getUser(req: Request, res: Response) {
+    const user = await this.userService.getUser(req.params.id);
+    res.status(200).json(user);
+  }
+
+  async getAllUsers(req: Request, res: Response) {
+    const users = await this.userService.getAllUsers();
+    res.status(200).json(users);
+  }
+
   async createUser(req: Request, res: Response) {
     const user = await this.userService.createUser(req.body);
     res.status(201).json(user);

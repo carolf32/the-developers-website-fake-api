@@ -11,6 +11,14 @@ export const userRouter = Router();
 container.registerSingleton("UserService", UserService);
 const userController = container.resolve(UserController);
 
+userRouter.get("/:id", ValidateToken.execute, (req, res) =>
+  userController.getUser(req, res)
+);
+
+userRouter.get("/", ValidateToken.execute, (req, res) =>
+  userController.getAllUsers(req, res)
+);
+
 userRouter.post(
   "/register",
   ValidateBody.execute(userCreateSchema),
