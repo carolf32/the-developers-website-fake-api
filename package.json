@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc && copyfiles -u 1 \"src/**/*.env\" \"src/**/*.json\" dist/",
-    "start": "node src/server.js",
-    "prestart": "npm run build",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy",
-    "prepare": "npm run prisma:generate"
+    "start": "node dist/server.js",
+    "build": "prisma generate && tsc && cp -R src/views dist/ && cp src/public dist/ -R || true",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "dev": "tsnd --respawn src/server.ts",
+    "migrate:dev": "npx prisma migrate dev",
+    "studio:dev": "npx prisma studio",
+    "render-build": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
