@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "prisma generate && tsc && cp -R src/views dist/ && cp src/public dist/ -R || true",
-    "migrate:deploy": "npx prisma migrate deploy",
+    "build": "chmod +x ./node_modules/.bin/prisma && npx prisma generate && npx tsc",
+    "migrate:deploy": "npm run build && npx prisma migrate deploy",
     "dev": "tsnd --respawn src/server.ts",
     "migrate:dev": "npx prisma migrate dev",
-    "studio:dev": "npx prisma studio",
-    "render-build": "npm install && npm run build"
+    "studio:dev": "npx prisma studio"
   },
   "keywords": [],
   "author": "",
@@ -30,8 +29,6 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^22.14.1",
-    "copyfiles": "^2.4.1",
     "prisma": "^6.6.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"

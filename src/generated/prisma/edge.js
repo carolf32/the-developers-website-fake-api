@@ -161,11 +161,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://the_developers_comments_db_mv6e_user:DBMrrU97YMPBFgJOyiiJ3PamYWZq3DWB@dpg-d018f1muk2gs73cn56p0-a.oregon-postgres.render.com/the_developers_comments_db_mv6e"
+        "value": null
       }
     }
   },

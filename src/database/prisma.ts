@@ -1,7 +1,3 @@
-import { PrismaClient } from "@prisma/client";
-
-declare global {
-  var prisma: PrismaClient | undefined;
-}
+import { PrismaClient } from "../generated/prisma";
 
 export const prisma = new PrismaClient();
