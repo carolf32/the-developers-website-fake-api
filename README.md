@@ -37,8 +37,8 @@ Each comment contains:
 # Routes - Products
 |type|address|description|
 |-|-|-|
-|POST|/api/comments|create a comment route|
-|GET|/api/comments|list all comments for a certain dev route|
+|POST|/api/devs/:devId/comments|create a comment route|
+|GET|/api//devs/:devId/comments|list all comments for a certain dev route|
 |DELETE|/api/comments/:commentId|delete comment route|
 
 # Requests and responses
