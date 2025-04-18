@@ -1,6 +1,7 @@
 import { prisma } from "../database/prisma";
 import { appError } from "../errors/appError";
 import {
+  TUser,
   TUserCreate,
   TUserLogin,
   TUserUpdate,
@@ -28,7 +29,7 @@ export class UserService {
 
   async getAllUsers() {
     const users = await prisma.user.findMany();
-    return users.map((user) => userReturnSchema.parse(user));
+    return users.map((user: TUser) => userReturnSchema.parse(user));
   }
 
   async createUser(body: TUserCreate) {
