@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/server.ts"
+    "dev": "ts-node-dev --respawn src/server.ts",
+    "start": "node dist/server.js",
+    "build": "chmod +x ./node_modules/.bin/prisma && npx prisma generate && npx tsc",
+    "migrate:deploy": "npm run build && npx prisma migrate deploy",
+    "migrate:dev": "npx prisma migrate dev",
+    "studio:dev": "npx prisma studio"
   },
   "keywords": [],
   "author": "",
