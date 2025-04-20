@@ -26,7 +26,7 @@ export class CommentController {
     const { devId } = req.params;
 
     if (req.user) {
-      const userId = Number(req.user.id);
+      const userId = req.user.id;
 
       const newComment: TCommentCreate = {
         content,
